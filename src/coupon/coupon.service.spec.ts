@@ -1,14 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { BadRequestException } from '@nestjs/common';
+import { BadRequestException, INestApplication } from '@nestjs/common';
 import { Coupon } from '../entities/Coupon';
 import { PlayerCoupon } from '../entities/PlayerCoupon';
 import { Reward } from '../entities/Reward';
 import { CouponService } from './coupon.service';
 import { Repository } from 'typeorm';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
-describe('CouponController (e2e)', () => {
-  let app;
+describe('CouponService (e2e)', () => {
+  let app: INestApplication<NestExpressApplication>;
   let couponService: CouponService;
   let couponRepository: Repository<Coupon>;
   let playerCouponRepository: Repository<PlayerCoupon>;
